@@ -1,16 +1,5 @@
 public class Query
 {
-    public Book GetBook() =>
-        new Book
-        {
-            Title = "C# in depth.",
-            Author = new Author
-            {
-                Name = "Jon Skeet"
-            }
-        };
-
-    public Author GetAuthor() => new Author {
-        Name = "Hero"
-    };
+    public IQueryable<Book>? GetBooks([Service] MyDBContext context) => context.Books;
+    public IQueryable<Author>? GetAuthors([Service] MyDBContext context) => context.Authors;
 }
