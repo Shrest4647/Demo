@@ -6,8 +6,10 @@ builder.Services
 builder.Services
     .AddGraphQLServer()
     .RegisterDbContext<MyDBContext>()
-    .AddQueryType<Query>();
-    // .AddMutationType<MutationType>();
+    .AddQueryType<Query>()
+    // .AddTypeExtension()
+    // .AddMutationType<Mutation>()
+    .AddMutationType<MutationType>();
 var app = builder.Build();
 
 app.MapGraphQL();
